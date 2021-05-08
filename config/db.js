@@ -8,7 +8,7 @@ const connectDB  = () => {
         useCreateIndex: true,
         useFindAndModify: true,
         useUnifiedTopology: true
-    }).then(() => console.log('DATABASE Connection Edtablished'))
+    }).then(() => console.log('DATABASE Connection Established...'))
     .catch(err => {
         console.error(err.message);
         process.exit(1);

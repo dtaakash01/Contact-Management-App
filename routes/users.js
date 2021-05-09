@@ -8,7 +8,6 @@ const bcrypt = require('bcryptjs');
 
 
 const User = require('../models/users');
-const { JsonWebTokenError } = require('jsonwebtoken');
 
 // @route post/api/users
 // @desc Register user

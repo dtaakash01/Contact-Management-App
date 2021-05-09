@@ -7,7 +7,8 @@ const connectDB  = () => {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useFindAndModify: false
     }).then(() => console.log('DATABASE Connection Established...'))
     .catch(err => {
         console.error(err.message);

@@ -25,7 +25,7 @@ const ContactForm = () => {
                 name: '',
                 email: '',
                 phone: '',
-                type: ''})
+                type: 'personal'})
         }
     }, [current, contactContext])
 

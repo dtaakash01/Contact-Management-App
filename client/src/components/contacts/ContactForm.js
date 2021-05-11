@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../context/contacts/contactContext';
 
 const ContactForm = () => {
@@ -14,13 +14,35 @@ const ContactForm = () => {
 
     const {name, email, phone, type} = contact;
 
+    const { addContact, current, clearCurrent, updateContact } = contactContext
+
+    useEffect(() => {
+        if( current !== null) {
+            setContact(current);
+        }
+        else {
+            setContact({     
+                name: '',
+                email: '',
+                phone: '',
+                type: ''})
+        }
+    }, [current, contactContext])
+
     const onChange = e => setContact({
         ...contact,[e.target.name]: e.target.value
     })
 
+    
+    
+
     const onSubmit = (e) => {
-       
-        contactContext.addContact({contact});
+       if(current === null) {
+            addContact({contact});
+       } else {
+           updateContact(contact);
+       }
+        
         console.log(contact.type);
         setContact({     
         name: '',
@@ -30,9 +52,13 @@ const ContactForm = () => {
         e.preventDefault();
     }
 
+    const clearAll = () => {
+        clearCurrent();
+    }
+
     return (
         <form onSubmit={onSubmit}>
-            <h2 className="text-primary">Add Contact</h2>
+            <h2 className="text-primary">{current ? 'Edit Contact' : 'Add Contact'}</h2>
             <input
                 type='text'
                 placeholder='Name'
@@ -69,7 +95,14 @@ const ContactForm = () => {
                 checked={type === 'professional'}
                 onChange={onChange} 
             />{' '} Professional {' '}
-            <input type="submit" value='Add Contact' className="btn btn-primary btn-block"/>
+            <input type="submit"  value='Add Contact' className="btn btn-primary btn-block"/>
+            {current && (
+                <div>
+                    <button className="btn btn-light btn-block" onClick={clearAll}>
+                        Clear
+                    </button>
+                </div>
+            )}
         </form>
     )
 }

@@ -6,14 +6,24 @@ const Contacts = () => {
 
     const contactContext = useContext(ContactContext);
 
-    const { contacts } = contactContext
-    console.log(contacts);
+    const { contacts, filtered } = contactContext;
+
+    if (contacts === null) {
+        return (
+            <h4>Please add a contact</h4>
+        )
+    }
+    else
+ 
 
     return (
         <div>
-           { contacts.map(contact => 
-                <ContactItem key={contact.id} contact={contact} />
-            )}
+
+            {filtered !== null ? filtered.map(contact => 
+                <ContactItem key={contact.id} contact={contact} />) :
+                contacts.map(contact => 
+                    <ContactItem key={contact.id} contact={contact} />)}
+          
         </div>
     )
 }

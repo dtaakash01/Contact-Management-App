@@ -5,7 +5,7 @@ const ContactFilter = () => {
     
     const contactContext = useContext(ContactContext);
 
-    const { filteredContact,clearFilter, filtered} = contactContext;
+    const { filterContact,clearFilter, filtered} = contactContext;
 
     const text = useRef('');
 
@@ -17,7 +17,7 @@ const ContactFilter = () => {
 
     const onChange = (e) => {
         if(text.current.value !== '') {
-            filterContacts(e.target.value);
+            filterContact(e.target.value);
         }
         else {
             clearFilter();

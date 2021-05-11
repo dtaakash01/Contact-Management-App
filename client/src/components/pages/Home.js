@@ -12,8 +12,9 @@ const Home = () => {
                 <ContactForm />
             </div>
             <div>
+                <ContactFilter />
                <Contact />
-               <ContactFilter />
+              
             </div>
         </div>
     )

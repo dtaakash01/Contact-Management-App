@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Navbar from './components/layout/Navbar';
+import AuthState from './context/auth/AuthState'
 import ContactState from './context/contacts/ContactState'
 
 import './App.css';
@@ -10,20 +11,22 @@ import './App.css';
 
 function App() {
   return (
-    <ContactState>
-        <Router>
-            <div className="App">
-            <Navbar />
+    <AuthState>
+      <ContactState>
+          <Router>
+              <div className="App">
+              <Navbar />
 
-            <div className="container">
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path ='/about' component={About} /> 
-              </Switch>
-            </div>
-            </div>
-        </Router>
-    </ContactState>
+              <div className="container">
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path ='/about' component={About} /> 
+                </Switch>
+              </div>
+              </div>
+          </Router>
+      </ContactState>
+    </AuthState>
   );
 }
 

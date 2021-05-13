@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../context/contacts/contactContext';
 
+
 const ContactForm = () => {
 
     const [contact, setContact] = useState({
@@ -11,10 +12,13 @@ const ContactForm = () => {
     }) 
 
     const contactContext = useContext(ContactContext)
+    
 
     const {name, email, phone, type} = contact;
 
-    const { addContact, current, clearCurrent, updateContact } = contactContext
+
+    const { addContact, current, clearCurrent, updateContact } = contactContext;
+    
 
     useEffect(() => {
         if( current !== null) {
@@ -37,6 +41,9 @@ const ContactForm = () => {
     
 
     const onSubmit = (e) => {
+        
+  
+
        if(current === null) {
             addContact({contact});
        } else {

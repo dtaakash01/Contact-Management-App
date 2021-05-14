@@ -19,7 +19,7 @@ app.use('/api/auth', require('./routes/auth'));
 
 app.get('/', (req,res) => res.send("Local host 5000 / backend"));
 
-if(pocess.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
     // Set static folder
     app.use(express.static('client/build'));
 

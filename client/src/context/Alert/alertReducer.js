@@ -4,7 +4,7 @@ import {
 } from '../types';
 
 
-export default (state, action) => {
+const alertReducer =  (state, action) => {
     switch (action.type) {
         case SET_ALERT:
             return [...state, action.payload]
@@ -17,4 +17,6 @@ export default (state, action) => {
     }
 
 }
+
+export default alertReducer;
 

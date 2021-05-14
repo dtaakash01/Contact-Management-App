@@ -17,7 +17,7 @@ const ContactForm = () => {
     const {name, email, phone, type} = contact;
 
 
-    const { addContact, current, clearCurrent, updateContact } = contactContext;
+    const { addContact, current, clearCurrent, updateContact} = contactContext;
     
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const ContactForm = () => {
            updateContact(contact);
        }
         
-        console.log(contact.type);
+       
         setContact({     
         name: '',
         email: '',

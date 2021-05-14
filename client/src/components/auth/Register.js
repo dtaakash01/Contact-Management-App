@@ -16,18 +16,15 @@ const Register = props => {
     const authContext = useContext(AuthContext);
 
     const { setAlert } = alertContext;
-    const { register, error, clearErrors, isAuthenticated,token } = authContext; 
+    const { register, error, clearErrors, isAuthenticated } = authContext; 
 
     const { name,email,password,password2 } = user;
-    console.log(isAuthenticated);
-    console.log(token);
+    
 
     useEffect(() => {
         if(isAuthenticated) {
             props.history.push('/');
-            console.log("IS");
         }
-        console.log(isAuthenticated);
 
         if( error === 'User already exits'){
             setAlert(error, 'danger');

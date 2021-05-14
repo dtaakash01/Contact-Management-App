@@ -9,7 +9,7 @@ import {
     CLEAR_ERRORS
 } from '../types';
 
-export default (state, action) => {
+const authReducer = (state, action) => {
 
     switch(action.type) {
         case REGISTER_SUCCESS:
@@ -39,7 +39,7 @@ export default (state, action) => {
             return {
                 ...state,
                 token: null,
-                isAuhtenticated: false,
+                isAuthenticated: false,
                 loading: false,
                 user: null,
                 error: action.payload
@@ -49,5 +49,9 @@ export default (state, action) => {
                 ...state,
                 error: null
             }
+        default :
+            return state
     }
 }
+
+export default authReducer
